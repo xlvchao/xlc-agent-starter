@@ -65,7 +65,7 @@ step-1：先启动服务端
 step-2：通过控制台交互  
 ![test](https://tuchuang-57s.pages.dev/test.png)
 
-step-3：通过接口测试（先创建会话、再进行对话）
+step-3：通过接口交互（先创建会话、再进行对话）
 ![chat_stream](https://tuchuang-57s.pages.dev/chat_stream.png)
 
 
