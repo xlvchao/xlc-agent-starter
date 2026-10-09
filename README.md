@@ -53,13 +53,11 @@ xlc-agent-starter
 ## 快速体验
 
 1. *创建库表*
-<br>
 执行该脚本会创建以下4张空表：docs/mysql/xlc-agent-starter.sql
 <br>
 ![mysql](https://tuchuang-57s.pages.dev/mysql.png)
 <br><br>
 2. *修改配置*
-<br>
 修改成支持openai交互协议的大模型：xlc-agent-starter-app\src\main\resources\agent\xlc-agent.yml
 <br>
 ![xlc-agent](https://tuchuang-57s.pages.dev/xlc-agent.png)
@@ -70,7 +68,6 @@ xlc-agent-starter
 <br><br>
 
 3. *启动测试*
-<br>
 step-1：先启动服务端
 <br>
 ![app](https://tuchuang-57s.pages.dev/app.png)
@@ -86,6 +83,7 @@ step-3：通过接口测试（先创建会话、再进行对话）
 
 
 ## 开发要点
+```java
 Agent自动装配：xlc-agent-starter-app\src\main\java\com\xlc\ai\config\AgentInstaller.java
 <br>
 Agent会话、对话：xlc-agent-starter-trigger\src\main\java\com\xlc\ai\trigger\http\AgentServiceController.java
@@ -95,6 +93,7 @@ Tool开发样例：xlc-agent-starter-domain\src\main\java\com\xlc\ai\domain\agen
 Skills扩展目录：xlc-agent-starter-app\src\main\resources\agent\skills
 <br>
 大模型/Prompt/MCP/Skills/Plugin/工作流配置：xlc-agent-starter-app\src\main\resources\agent\xlc-agent.yml
+```
 
 # 公众号
 
