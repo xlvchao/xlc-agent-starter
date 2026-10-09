@@ -3,7 +3,7 @@
 
 
 ## 技术选型
-| 技术 <img width=200/>| 说明                                     | 网站 |
+| 技术 <img width=250/>| 说明                                     | 网站 |
 |-------------|----------------------------------------|----|
 | DDD领域驱动设计   | 本项目严格按照DDD设计思想分成7层                     |   https://domain-driven-design.org/zh/ddd-design-workshop-guide.html |
 | Spring Boot | As you know               |   https://spring.io/projects/spring-boot |
