@@ -3,7 +3,7 @@
 
 
 ## 技术选型
-| 技术          | 说明                                     | 网站 |
+| 技术 <img width=200/>| 说明                                     | 网站 |
 |-------------|----------------------------------------|----|
 | DDD领域驱动设计   | 本项目严格按照DDD设计思想分成7层                     |   https://domain-driven-design.org/zh/ddd-design-workshop-guide.html |
 | Spring Boot | As you know               |   https://spring.io/projects/spring-boot |
@@ -46,34 +46,28 @@ xlc-agent-starter
 ```
 
 ## 快速体验
-1. *创建库表*
+1、*创建库表*  
 执行该脚本会创建以下4张空表：docs/mysql/xlc-agent-starter.sql
-<br>
 ![mysql](https://tuchuang-57s.pages.dev/mysql.png)
-<br><br>
-2. *修改配置*
-修改成支持openai交互协议的大模型：xlc-agent-starter-app\src\main\resources\agent\xlc-agent.yml
-<br>
-![xlc-agent](https://tuchuang-57s.pages.dev/xlc-agent.png)
-<br><br>
-修改mysql配置：xlc-agent-starter-app\src\main\resources\application-dev.yml
-<br>
-![application-dev](https://tuchuang-57s.pages.dev/application-dev.png)
-<br><br>
 
-3. *启动测试*
-step-1：先启动服务端
-<br>
+2、*修改配置*  
+修改成支持openai交互协议的大模型：xlc-agent-starter-app\src\main\resources\agent\xlc-agent.yml
+![xlc-agent](https://tuchuang-57s.pages.dev/xlc-agent.png)
+
+修改mysql配置：xlc-agent-starter-app\src\main\resources\application-dev.yml
+![application-dev](https://tuchuang-57s.pages.dev/application-dev.png)
+
+
+3、*启动测试*  
+step-1：先启动服务端  
 ![app](https://tuchuang-57s.pages.dev/app.png)
-<br><br>
-step-2：通过控制台交互
-<br>
+
+step-2：通过控制台交互  
 ![test](https://tuchuang-57s.pages.dev/test.png)
-<br><br>
+
 step-3：通过接口测试（先创建会话、再进行对话）
-<br>
 ![chat_stream](https://tuchuang-57s.pages.dev/chat_stream.png)
-<br><br>
+
 
 
 ## 开发要点
