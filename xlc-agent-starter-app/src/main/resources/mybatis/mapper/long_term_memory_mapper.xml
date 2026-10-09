@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xlc.ai.infrastructure.dao.ILongTermMemoryDao">
+
+    <resultMap id="LongTermMemoryMap" type="com.xlc.ai.infrastructure.dao.po.LongTermMemoryPO">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="session_id" property="sessionId"/>
+        <result column="memory_type" property="memoryType"/>
+        <result column="memory_key" property="memoryKey"/>
+        <result column="content" property="content"/>
+        <result column="keywords" property="keywords"/>
+        <result column="source_role" property="sourceRole"/>
+        <result column="confidence" property="confidence"/>
+        <result column="hit_count" property="hitCount"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <select id="queryByIdentity" resultMap="LongTermMemoryMap">
+        SELECT id, user_id, session_id, memory_type, memory_key, content, keywords,
+               source_role, confidence, hit_count, created_at, updated_at
+        FROM long_term_memory
+        WHERE user_id = #{userId}
+          AND memory_type = #{memoryType}
+          AND memory_key = #{memoryKey}
+        LIMIT 1
+    </select>
+
+    <insert id="insert" parameterType="com.xlc.ai.infrastructure.dao.po.LongTermMemoryPO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO long_term_memory (
+            user_id, session_id, memory_type, memory_key, content, keywords, source_role, confidence, hit_count
+        ) VALUES (
+            #{userId}, #{sessionId}, #{memoryType}, #{memoryKey}, #{content}, #{keywords}, #{sourceRole}, #{confidence}, #{hitCount}
+        )
+    </insert>
+
+    <update id="update" parameterType="com.xlc.ai.infrastructure.dao.po.LongTermMemoryPO">
+        UPDATE long_term_memory
+        SET session_id = #{sessionId},
+            content = #{content},
+            keywords = #{keywords},
+            source_role = #{sourceRole},
+            confidence = #{confidence},
+            hit_count = #{hitCount},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE id = #{id}
+    </update>
+
+    <select id="queryRecentByUserId" resultMap="LongTermMemoryMap">
+        SELECT id, user_id, session_id, memory_type, memory_key, content, keywords,
+               source_role, confidence, hit_count, created_at, updated_at
+        FROM long_term_memory
+        WHERE user_id = #{userId}
+        ORDER BY updated_at DESC, id DESC
+        LIMIT #{limit}
+    </select>
+</mapper>

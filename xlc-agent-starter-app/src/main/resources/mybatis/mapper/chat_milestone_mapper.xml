@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xlc.ai.infrastructure.dao.IChatMilestoneDao">
+
+    <resultMap id="ChatMilestoneMap" type="com.xlc.ai.infrastructure.dao.po.ChatMilestonePO">
+        <id column="id" property="id"/>
+        <result column="session_id" property="sessionId"/>
+        <result column="type" property="type"/>
+        <result column="content" property="content"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.xlc.ai.infrastructure.dao.po.ChatMilestonePO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO chat_milestone (session_id, type, content)
+        VALUES (#{sessionId}, #{type}, #{content})
+    </insert>
+
+    <select id="queryRecentBySessionId" resultMap="ChatMilestoneMap">
+        SELECT id, session_id, type, content, created_at
+        FROM chat_milestone
+        WHERE session_id = #{sessionId}
+        ORDER BY id DESC
+        LIMIT #{limit}
+    </select>
+</mapper>

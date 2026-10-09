@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xlc.ai.infrastructure.dao.IChatMessageDao">
+
+    <resultMap id="ChatMessageMap" type="com.xlc.ai.infrastructure.dao.po.ChatMessagePO">
+        <id column="id" property="id"/>
+        <result column="session_id" property="sessionId"/>
+        <result column="role" property="role"/>
+        <result column="content" property="content"/>
+        <result column="tool_name" property="toolName"/>
+        <result column="tool_call_id" property="toolCallId"/>
+        <result column="priority" property="priority"/>
+        <result column="token_count" property="tokenCount"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.xlc.ai.infrastructure.dao.po.ChatMessagePO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO chat_message (session_id, role, content, tool_name, tool_call_id, priority, token_count)
+        VALUES (#{sessionId}, #{role}, #{content}, #{toolName}, #{toolCallId}, #{priority}, #{tokenCount})
+    </insert>
+
+    <select id="queryRecentBySessionId" resultMap="ChatMessageMap">
+        SELECT id, session_id, role, content, tool_name, tool_call_id, priority, token_count, created_at
+        FROM chat_message
+        WHERE session_id = #{sessionId}
+        ORDER BY id DESC
+        LIMIT #{limit}
+    </select>
+</mapper>
