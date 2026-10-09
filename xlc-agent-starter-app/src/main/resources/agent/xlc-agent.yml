@@ -6,7 +6,7 @@ ai:
   module:
     ai-api:
       base-url: https://api.deepseek.com
-      api-key: xxxxxxxxxxxxxxxxxxxxxxxxxxx
+      api-key: sk-194c53f1220345f494cdadf3b0f7f1ae
       completions-path: v1/chat/completions
       embeddings-path: v1/embeddings
     chat-model:
@@ -17,7 +17,7 @@ ai:
 #         - sse:
 #             name: baidu-search
 #             base-uri: http://appbuilder.baidu.com/v2/ai_search/mcp/
-#             sse-endpoint: sse?api_key=xxxxxxxxxxxxxxxxxxx
+#             sse-endpoint: sse?api_key=bce-v3/ALTAK-WjK8NIh3txZo7rXXEjhri/e3f09d53de961bcaf2609b76c7c7a7e670f05da3
 #             request-timeout: 500000
 #       tool-skills-list:
 #         - type: resource
