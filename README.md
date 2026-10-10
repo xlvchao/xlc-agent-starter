@@ -1,5 +1,5 @@
 ## 项目简介
-为了降低 Agent 开发门槛、提升业务系统集成效率，基于 DDD 领域设计驱动 + Spring AI + Google ADK构建的 AI Agent 开发脚手架，支持从 YAML 配置文件动态装配智能体，支持mcp、skills、plugin插件扩展能力，支持顺序、并行、循环 Agent 以及基于依赖关系的动态子Agent编排。此外还实现了 ReAct 执行链路、意图识别、历史消息剪裁与Token控制、Prompt动态增强、长期记忆，以及基于 SSE 的全链路流式输出。
+为了降低Agent开发门槛、提升业务系统集成效率，基于 DDD领域设计驱动 + Spring AI + Google ADK 构建的AI Agent开发脚手架，支持从 YAML 配置文件动态装配智能体，支持mcp、skills、plugin插件扩展能力，支持顺序、并行、循环 Agent 以及基于依赖关系的动态子Agent编排。此外还实现了 ReAct 执行链路、意图识别、历史消息剪裁与Token控制、Prompt动态增强、长期记忆，以及基于 SSE 的全链路流式输出。
 
 
 ## 技术选型
@@ -10,7 +10,7 @@
 | Spring AI   | Spring开源Agent开发框架，本项目中主要使用它的基础Agent构建能力 |  https://spring.io/projects/spring-ai |
 | Google ADK  | Google开源Agent开发框架，本项目中主要使用它的Agent编排能力  | https://adk.dev/get-started  |
 | Guava       | Google开源本地缓存框架                         |  https://github.com/google/guava |
-| SSE         | Spring-web默认支持，主要用来实现聊天时的流式输出、类似打字机效果 |  https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-async.html#mvc-ann-async-sse |
+| SSE         | Spring-web默认支持，主要用来实现聊天时的流式输出（类似打字机效果） |  https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-async.html#mvc-ann-async-sse |
 | Mysql       | Agent会话存储与查询、实时聊天记录、长期记忆的存储与召回         |  https://www.mysql.com  |
 
 
