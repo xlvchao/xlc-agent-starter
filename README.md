@@ -1,5 +1,5 @@
 ## 项目简介
-为了降低Agent开发门槛、提升业务系统集成效率，基于 DDD领域设计驱动 + Spring AI + Google ADK 构建的AI Agent开发脚手架，支持从 YAML 配置文件动态装配智能体，支持mcp、skills、plugin插件扩展能力，支持顺序、并行、循环 Agent 以及基于依赖关系的动态子Agent编排。此外还实现了 ReAct 执行链路、意图识别、历史消息剪裁与Token控制、Prompt动态增强、长期记忆，以及基于 SSE 的全链路流式输出。
+为了降低Agent开发门槛、提升业务系统集成效率，基于 DDD领域设计驱动 + Spring AI + Google ADK 构建的AI Agent开发脚手架，支持从YAML配置文件动态装配智能体，支持mcp、skills、plugin插件扩展能力，支持顺序、并行、循环Agent以及基于依赖关系的动态子Agent编排。此外还实现了ReAct执行链路、意图识别、历史消息剪裁与Token控制、Prompt动态增强、长期记忆，以及基于SSE的全链路流式输出。
 
 
 ## 技术选型
