@@ -89,7 +89,7 @@ public class BatchSubAgentDispatchTool extends BaseTool {
 
     /**
      * 批量派发流程：解析参数 → 补全 taskId → 构建计划并校验（上限 10）→
-     * 白名单校验 → 从 ToolContext 提取执行上下文（含父会话绑定的终端会话）→
+     * 白名单校验 → 从 ToolContext 提取执行上下文→
      * 交给编排器按 DAG 执行 → 返回 {success, tasks, allSucceeded}。
      * 任何环节失败都返回 {success:false, error:...}，不向上抛异常。
      */

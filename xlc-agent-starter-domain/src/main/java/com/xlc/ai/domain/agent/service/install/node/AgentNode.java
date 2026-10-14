@@ -105,7 +105,7 @@ public class AgentNode extends AbstractInstallSupport {
             dynamicContext.getAgentGroup().put(agentConfig.getName(), llmAgent);
         }
 
-        // 子agent派发的核心机制，就是把其他智能体作为工具使用（要不给你留个小作业，把subagent的构建，放到下一个单独的 SubAgentNode 节点，串联使用）
+        // 子agent派发的核心机制，就是把其他智能体作为工具使用
         buildAgentTools(
                 dynamicContext,
                 agents,
@@ -152,7 +152,7 @@ public class AgentNode extends AbstractInstallSupport {
                 adkTools.add(new SubAgentDispatchTool(subAgent, customRunnerFactory));
             }
 
-            // 批量派发工具：主 Agent 自行拆解任务列表并发派发 2-11节，agentEventPublisher 推送。前后有好几个地方都要有这个。
+            // 批量派发工具：主 Agent 自行拆解任务列表并发派发
             adkTools.add(new BatchSubAgentDispatchTool(
                     agents.stream().map(AgentConfigure.Module.Agent::getName).toList(),
                     dynamicAgentOrchestrator));
