@@ -1,5 +1,5 @@
 ## 项目简介
-为了降低Agent开发门槛、提升业务系统集成效率，基于DDD设计驱动 + Spring AI + Google ADK构建的AI Agent开发脚手架，支持从YAML配置文件动态装配智能体，支持mcp、skills、plugin插件扩展能力，支持顺序、并行、循环 Agent以及基于依赖关系的动态子Agent编排。此外还实现了ReAct 执行链路、意图识别、历史消息剪裁与Token控制、Prompt动态增强、长期记忆，以及基于 SSE 的全链路流式输出。
+为了降低Agent开发门槛、提升业务系统集成效率，基于 DDD领域设计驱动 + Spring AI + Google ADK 构建的Agent开发脚手架，支持从YAML配置文件动态装配智能体，支持mcp、skills、plugin插件扩展能力，支持顺序/并行/循环Agent以及基于依赖关系的动态子Agent派发、协作机制。此外还实现了ReAct执行链路、意图识别、历史消息剪裁与Token控制、Prompt动态增强、长期记忆，以及基于SSE的全链路流式输出。
 
 
 ## 技术选型
@@ -10,7 +10,7 @@
 | Spring AI   | Spring开源Agent开发框架，本项目中主要使用它的基础Agent构建能力 |  https://spring.io/projects/spring-ai |
 | Google ADK  | Google开源Agent开发框架，本项目中主要使用它的Agent编排能力  | https://adk.dev/get-started  |
 | Guava       | Google开源本地缓存框架                         |  https://github.com/google/guava |
-| SSE         | Spring-web默认支持，主要用来实现聊天时的流式输出、类似打字机效果 |  https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-async.html#mvc-ann-async-sse |
+| SSE         | Spring-web默认支持，主要用来实现聊天时的流式输出（类似打字机效果） |  https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-async.html#mvc-ann-async-sse |
 | Mysql       | Agent会话存储与查询、实时聊天记录、长期记忆的存储与召回         |  https://www.mysql.com  |
 
 
@@ -18,20 +18,20 @@
 ![架构图](https://tuchuang-57s.pages.dev/jiagoutu.png)
 
 **核心特性**
-1. Agent配置化装配（YAML配置 + 责任链&策略树）
+1. Agent自动化装配（YAML配置 + 责任链&策略树）
 2. 多智能体协作（子智能体派发，基于Agent-as-Tool多智能体协作机制实现）
-3. Agent工作流编排（loop / parallel / sequential）
-4. 支持MCP工具接入（SSE / Stdio / Local）、Skills、Tool
-5. ReAct任务编排（自定义ReAct业务执行链路，不参与真实ReAct循环）
+3. Agent 工作流编排（支持loop / parallel / sequential）
+4. 支持 MCP（SSE / Stdio / Local）、Skills、Tool
+5. ReAct 任务编排（自定义ReAct业务执行链路，不参与真实ReAct循环）
 6. Prompt动态增强（信息越用越全）
-   - 历史消息剪裁与Token控制（保证长对话/复杂任务下AI仍然 "记得住重点" 且成本可控）
-   - 意图识别（规则分类 + LLM 分类）
-   - 长短期记忆（long_term_memory / 自定义SessionService）
-   - 工具调用（检测工具调用结果&为智能体工具调用提供兜底能力）
-   - 缓存命中与推理强度（静态前置、动态后置，最大程度命中缓存，节省Token）
-7. 同时支持HTTP与SSE流式对话（支持文本、文件、图片满足多种业务场景）
+7. 历史消息剪裁与Token控制（保证长对话/复杂任务下AI仍然 "记得住重点" 且成本可控）
+8. 意图识别（规则分类 + LLM 分类）
+9. 长短期记忆（long_term_memory / 自定义SessionService）
+10. 工具调用（为智能体工具调用提供兜底能力）
+11. 缓存命中与推理强度（静态前置、动态后置，最大程度命中缓存，节省Token）
+12. 同时支持 HTTP 与 SSE 流式对话（支持文本、文件、图片满足多种需求场景）
 
-**一句话总结**：要实现一个分工明确（Agent-as-Tool），能边做边想（ReAct）、信息越用越全（动态富化）、不会失忆也不会撑爆（缓存命中与推理强度 + 剪裁 + Token 控制）、越聊越懂你（意图 + 反馈）、并且能长期记住重要事情（记忆 + 召回）的智能体系统！
+**一句话总结**：实现了一个分工明确（Agent-as-Tool），能边做边想（ReAct）、信息越用越全（动态富化）、不会失忆也不会撑爆（缓存命中与推理强度 + 剪裁 + Token 控制）、越聊越懂你（意图 + 反馈）、并且能长期记住重要事情（记忆 + 召回）的智能体开发框架！
 
 ## 模块划分
 ```
@@ -65,7 +65,7 @@ step-1：先启动服务端
 step-2：通过控制台交互  
 ![test](https://tuchuang-57s.pages.dev/test.png)
 
-step-3：通过接口测试（先创建会话、再进行对话）
+step-3：通过接口交互
 ![chat_stream](https://tuchuang-57s.pages.dev/chat_stream.png)
 
 
